@@ -32,14 +32,28 @@ export default function chooseTwoNotes(
             }, 3000)
         }
     } else if (direction === "up") {
-        firstAudio.play()
-        setTimeout(() => {
-            secondAudio.play()
-        }, 3000)
-    } else if (direction === "down") {
-        secondAudio.play()
-        setTimeout(() => {
+        if (soundMap[firstNote].number < soundMap[secondNote()].number) {
             firstAudio.play()
-        }, 3000)
+            setTimeout(() => {
+                secondAudio.play()
+            }, 3000)
+        } else {
+            secondAudio.play()
+            setTimeout(() => {
+                firstAudio.play()
+            }, 3000)
+        }
+    } else if (direction === "down") {
+        if (soundMap[firstNote].number > soundMap[secondNote()].number) {
+            secondAudio.play()
+            setTimeout(() => {
+                firstAudio.play()
+            }, 3000)
+        } else {
+            firstAudio.play()
+            setTimeout(() => {
+                secondAudio.play()
+            }, 3000)
+        }
     }
 }
