@@ -1,9 +1,15 @@
+"use client"
+
+import Link from "next/link"
+
 export default function Home() {
     return (
         <main className="min-h-screen flex flex-row p-24 gap-4 bg-gray-300">
             <div className="flex flex-1 bg-red-500 flex-col justify-center items-center">
                 <div className="flex flex-col gap-8">
-                    <button className="p-4 border border-1">Play Game</button>
+                    <Link href="./game" className="p-4 border border-1">
+                        Play Game
+                    </Link>
                     <button className="p-4 border border-1">Points Shop</button>
                 </div>
             </div>
